@@ -58,6 +58,10 @@
             New to our website? <a href="{{ url('/register') }}">Register here</a>
         </p>
 
+        <!-- Add below the form -->
+<p class="text-center mt-3">
+    Are you an admin? <a href="{{ route('admin.login.form') }}" class="btn btn-sm btn-warning">Admin Login</a>
+</p>
 
     </div>
 
