@@ -1,0 +1,135 @@
+/* General container */
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 15px;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Heading */
+.container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Success & error messages */
+.alert {
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.alert-success {
+    background: #e6f9ec;
+    color: #2b7a2f;
+    border: 1px solid #9dd6a5;
+}
+.alert-danger {
+    background: #fdecea;
+    color: #b02a2a;
+    border: 1px solid #f5a6a6;
+}
+
+/* Layout */
+.rooms-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Booking form */
+.room-left {
+    flex: 1 1 350px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border 0.2s;
+}
+.form-group input:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+/* Buttons */
+.booking-buttons {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+.booking-buttons button {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-available {
+    background: #4a90e2;
+    color: #fff;
+}
+.btn-available:hover {
+    background: #357abd;
+}
+.btn-mybooking {
+    background: #27ae60;
+    color: #fff;
+}
+.btn-mybooking:hover {
+    background: #1e874b;
+}
+
+/* Calendar section */
+.room-right {
+    flex: 2 1 500px;
+}
+#calendar {
+    width: 100%;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Login message */
+.login-prompt {
+    font-size: 14px;
+    margin-top: 20px;
+}
+.login-prompt a {
+    color: #4a90e2;
+    text-decoration: none;
+}
+.login-prompt a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rooms-container {
+        flex-direction: column;
+    }
+    .booking-buttons {
+        flex-direction: column;
+    }
+}

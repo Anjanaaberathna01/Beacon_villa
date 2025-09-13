@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Navbar container */
+.navbar-custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 0.5rem 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    height: 60px;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Website name */
+.navbar-custom .brand {
+    font-weight: normal;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: black;
+}
+
+/* Navbar links */
+.navbar-custom ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-custom ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar-custom ul li a:hover {
+    color: #007bff;
+}
+
+/* Login icon spacing */
+.navbar-custom ul li a i {
+    margin-right: 5px;
+}
+
+/* Logout button styling */
+.btn-logout {
+    background: none;
+    border: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+}
+.btn-logout i {
+    margin-right: 5px;
+}
+.btn-logout:hover {
+    color: #007bff;
+}
+
+/* Hamburger Icon */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar-custom ul {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        background-color: #f8f9fa;
+        padding: 15px 20px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-custom ul.active {
+        display: flex;
+    }
+}
