@@ -12,6 +12,8 @@ class Room extends Model
     protected $fillable = [
         'room_number',
         'description',
+        'mobile_number',
+        'booking_date',
         'price',
     ];
 

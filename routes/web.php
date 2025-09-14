@@ -7,9 +7,10 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
+use App\Http\Middleware\AdminMiddleware;
 
 // ----------------------
-// Dashboard
+// Dashboard (User)
 // ----------------------
 Route::get('/', [DashboardController::class, 'index'])
     ->middleware('auth')
@@ -46,16 +47,31 @@ Route::post('/rooms/{room}/book', [RoomController::class, 'book'])->name('rooms.
 // Bookings (User - only for authenticated users)
 // ----------------------
 Route::middleware('auth')->group(function () {
-    Route::get('/my-bookings', [BookingController::class, 'myBookings'])->name('my.bookings');
+    Route::get('/my-bookings', [BookingController::class, 'index'])->name('my.bookings');
+    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
     Route::delete('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
 });
 
 // ----------------------
-// Admin Login (accessible without authentication)
+// Admin login routes
 // ----------------------
-Route::middleware('auth:admin')->group(function () {
 Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login.form');
 Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login');
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-Route::post('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+// ----------------------
+// Admin protected routes
+// ----------------------
+Route::middleware([AdminMiddleware::class])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+    // Admin rooms management
+    Route::get('/admin/rooms', [AdminController::class, 'rooms'])->name('admin.rooms');
+
+    // <-- THIS ROUTE MUST EXIST -->
+    Route::post('/admin/rooms/{room}/update-price', [AdminController::class, 'updateRoomPrice'])->name('admin.rooms.update-price');
+
+    // Admin bookings
+    Route::get('/admin/bookings', [AdminController::class, 'bookings'])->name('admin.bookings');
+    Route::delete('/admin/bookings/{booking}/delete', [AdminController::class, 'deleteBooking'])->name('admin.bookings.delete');
 });

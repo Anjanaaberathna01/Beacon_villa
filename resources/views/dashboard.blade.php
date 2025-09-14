@@ -84,22 +84,13 @@
                 4 => ['images/rooms/4/room-4-1.jpg', 'images/rooms/4/room-4-2.jpg'],
                 5 => ['images/rooms/5/room-5-1.jpg', 'images/rooms/5/room-5-2.jpg'],
             ];
-
-            // Define room prices
-            $roomPrices = [
-                1 => 4500,
-                2 => 5000,
-                3 => 5500,
-                4 => 6000,
-                5 => 6500,
-            ];
         @endphp
 
         @foreach($rooms as $room)
             @php
                 $isBookedToday = $room->bookings->where('booking_date', $today)->where('status', 'active')->count() > 0;
                 $images = $roomImages[$room->room_number] ?? ['images/rooms/default.jpg'];
-                $price = $roomPrices[$room->room_number] ?? 4500;
+                $price = $room->price ?? 4500; // ✅ Use DB column instead of hardcoded array
             @endphp
 
             <div class="room-row">
