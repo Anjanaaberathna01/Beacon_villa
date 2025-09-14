@@ -53,10 +53,9 @@ Route::middleware('auth')->group(function () {
 // ----------------------
 // Admin Login (accessible without authentication)
 // ----------------------
+Route::middleware('auth:admin')->group(function () {
 Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login.form');
 Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login');
-
-// Optional: Admin Dashboard (only for authenticated admins)
-// Route::middleware('auth:admin')->group(function () {
-//     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-// });
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::post('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+});
