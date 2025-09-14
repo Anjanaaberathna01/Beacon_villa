@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.rooms-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Table Styling */
+.rooms-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rooms-table th,
+.rooms-table td {
+    padding: 14px 18px;
+    text-align: left;
+}
+
+.rooms-table th {
+    background: #28a745;
+    color: #fff;
+    font-weight: 600;
+}
+
+.rooms-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.rooms-table tr:hover {
+    background: #e9f9ef;
+    transition: 0.3s ease;
+}
+
+/* Input + Button */
+.update-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.price-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100px;
+    text-align: right;
+    font-size: 14px;
+}
+
+.btn-update {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.3s;
+}
+
+.btn-update:hover {
+    background: #218838;
+}

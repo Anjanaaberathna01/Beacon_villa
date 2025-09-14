@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.bookings-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Table Styling */
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bookings-table th,
+.bookings-table td {
+    padding: 14px 18px;
+    text-align: left;
+}
+
+.bookings-table th {
+    background: #007bff;
+    color: #fff;
+    font-weight: 600;
+}
+
+.bookings-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.bookings-table tr:hover {
+    background: #eaf4ff;
+    transition: 0.3s ease;
+}
+
+/* Delete Button */
+.btn-delete {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.3s;
+}
+
+.btn-delete:hover {
+    background: #b52b39;
+}

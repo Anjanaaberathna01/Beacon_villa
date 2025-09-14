@@ -1,31 +1,44 @@
+
+@include("layouts.admin-navbar")
+
 @extends('layouts.app')
 
+
 @section('content')
-<h1>Rooms</h1>
+<link rel="stylesheet" href="{{ asset('css/admin-rooms.css') }}">
 
-@if(session('success'))
-    <div>{{ session('success') }}</div>
-@endif
+<div class="rooms-container">
+    <h1 class="page-title">Rooms</h1>
 
-<table border="1">
-    <tr>
-        <th>Room Number</th>
-        <th>Price</th>
-        <th>Update Price</th>
-    </tr>
-   @foreach($rooms as $room)
-    <div class="room">
-        <h3>Room {{ $room->room_number }}</h3>
-        <p>Current Price: {{ number_format($room->price, 2) }} Rs</p>
+    @if(session('success'))
+        <div class="alert-success">{{ session('success') }}</div>
+    @endif
 
-        <!-- Update Price Form -->
-        <form action="{{ route('admin.rooms.update-price', $room->id) }}" method="POST">
-            @csrf
-            <input type="number" name="price" value="{{ $room->price }}" required>
-            <button type="submit">Update Price</button>
-        </form>
-    </div>
-@endforeach
-
-</table>
+    <table class="rooms-table">
+        <thead>
+            <tr>
+                <th>Room Number</th>
+                <th>Price (Rs)</th>
+                <th>Update Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($rooms as $room)
+            <tr>
+                <td>Room {{ $room->room_number }}</td>
+                <td>{{ number_format($room->price, 2) }}</td>
+                <td>
+                    <form action="{{ route('admin.rooms.update-price', $room->id) }}" method="POST" class="update-form">
+                        @csrf
+                        <input type="number" name="price" value="{{ $room->price }}" required class="price-input">
+                        <button type="submit" class="btn-update">
+                            <i class="bi bi-pencil-square"></i> Update
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 @endsection

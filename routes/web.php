@@ -7,6 +7,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminBookingController; // ✅ new controller
 use App\Http\Middleware\AdminMiddleware;
 
 // ----------------------
@@ -65,13 +66,19 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
+    // ----------------------
     // Admin rooms management
+    // ----------------------
     Route::get('/admin/rooms', [AdminController::class, 'rooms'])->name('admin.rooms');
-
-    // <-- THIS ROUTE MUST EXIST -->
     Route::post('/admin/rooms/{room}/update-price', [AdminController::class, 'updateRoomPrice'])->name('admin.rooms.update-price');
 
+    // ----------------------
     // Admin bookings
+    // ----------------------
     Route::get('/admin/bookings', [AdminController::class, 'bookings'])->name('admin.bookings');
     Route::delete('/admin/bookings/{booking}/delete', [AdminController::class, 'deleteBooking'])->name('admin.bookings.delete');
+
+    // ✅ NEW: Admin create bookings
+    Route::get('/admin/bookings/create', [AdminBookingController::class, 'create'])->name('admin.bookings.create');
+    Route::post('/admin/bookings', [AdminBookingController::class, 'store'])->name('admin.bookings.store');
 });

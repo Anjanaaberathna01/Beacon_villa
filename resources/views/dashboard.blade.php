@@ -145,7 +145,7 @@
             heroIndex++;
             if (heroIndex > heroSlides.length) heroIndex = 1;
             heroSlides[heroIndex - 1].style.display = "flex";
-            setTimeout(showHeroSlides, 4000);
+            setTimeout(showHeroSlides, 3500);
         }
         function plusHeroSlides(n) {
             heroIndex += n - 1;

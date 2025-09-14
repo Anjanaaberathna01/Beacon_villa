@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.admin-dashboard {
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+.dashboard-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Cards container */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Card styling */
+.dashboard-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card i {
+    font-size: 3rem;
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+
+.dashboard-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.dashboard-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+}
