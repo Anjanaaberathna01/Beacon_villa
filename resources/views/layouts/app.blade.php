@@ -6,8 +6,11 @@
     <title>Beacon Villa</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    {{-- Page-specific styles --}}
+    @yield('styles')
 </head>
 <body>
+
     <div class="container">
         @yield('content')
     </div>

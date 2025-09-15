@@ -9,7 +9,7 @@ public function up()
 Schema::create('bookings', function (Blueprint $table) {
 $table->id();
 $table->foreignId('room_id')->constrained()->onDelete('cascade');
-$table->foreignId('user_id')->constrained()->onDelete('cascade');
+$table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
 $table->string('name')->nullable();
 $table->string('email')->nullable();
 $table->string('mobile_number');

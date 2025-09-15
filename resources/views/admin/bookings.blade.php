@@ -16,9 +16,9 @@
     <table class="bookings-table">
         <thead>
             <tr>
-                <th>Booking ID</th>
+                <th>Booking Date</th>
                 <th>Room Number</th>
-                <th>User</th>
+                <th>User Name</th>
                 <th>Mobile Number</th>
                 <th>Actions</th>
             </tr>
@@ -26,7 +26,7 @@
         <tbody>
             @foreach($bookings as $booking)
             <tr>
-                <td>{{ $booking->id }}</td>
+                <td>{{ $booking->booking_date }}</td>
                 <td>Room {{ $booking->room->room_number }}</td>
                 <td>{{ $booking->name }}</td>
                 <td>{{ $booking->mobile_number }}</td>
