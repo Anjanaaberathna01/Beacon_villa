@@ -347,8 +347,74 @@ main {
 .room-price strong {
     color: #d35400;
 }
+/* Contact Section */
+.contact-section {
+    padding: 50px 20px;
+    background: #fff;
+    border-radius: 12px;
+    margin-top: 40px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+}
 
+/* Info Container */
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
+/* Info Box */
+.info-box {
+    flex: 1;
+    min-width: 250px;
+    padding: 25px;
+    background: #f3f3f3;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Icons */
+.icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #00bfff; /* Ice blue */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.icon:hover {
+    color: #009acd; /* Slightly darker ice blue on hover */
+    transform: scale(1.1);
+}
+
+/* Titles & text */
+.info-box h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+.info-box p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-box {
+        width: 100%;
+        max-width: 400px;
+    }
+}
 /* Responsive */
 @media (max-width: 1024px) {
   .gallery-slide img {

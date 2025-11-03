@@ -3,6 +3,8 @@
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -60,13 +62,38 @@
             <div class="gallery-container">
                 <div class="gallery-slide">
                     @for ($i = 1; $i <= 12; $i++)
-                        <img src="{{ asset("images/gallery/$i.jpg") }}" alt="Image {{ $i }}">
+                        <img src="{{ asset('images/gallery/' . $i . '.jpg') }}" alt="Image {{ $i }}">
                     @endfor
                 </div>
             </div>
             <button class="gallery-btn next" onclick="moveGallery(1)">&#10095;</button>
         </div>
     </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-info">
+        <div class="info-box">
+            <div class="icon"><i class="fab fa-whatsapp"></i></div>
+            <h3>WhatsApp</h3>
+            <p>Chat with us directly<br>+94 77 199 7247</p>
+        </div>
+
+        <div class="info-box">
+            <div class="icon"><i class="fas fa-phone"></i></div>
+            <h3>Phone</h3>
+            <p>+94 71 289 0877<br>+94 77 199 7247</p>
+        </div>
+
+        <div class="info-box">
+            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+            <h3>Our Location</h3>
+            <p>5th cannel<br>
+            Srawasthipura, Anuradhapura</p>
+        </div>
+    </div>
+    </section>
+
 
    <!-- Rooms Section -->
 <section class="rooms-section" id="rooms">
@@ -78,11 +105,11 @@
 
             // Define room images
             $roomImages = [
-                1 => ['images/rooms/1/room-1-1.jpg', 'images/rooms/1/room-1-2.jpg'],
-                2 => ['images/rooms/2/room-2-1.jpg', 'images/rooms/2/room-2-2.jpg'],
-                3 => ['images/rooms/3/room-3-1.jpg', 'images/rooms/3/room-3-2.jpg'],
-                4 => ['images/rooms/4/room-4-1.jpg', 'images/rooms/4/room-4-2.jpg'],
-                5 => ['images/rooms/5/room-5-1.jpg', 'images/rooms/5/room-5-2.jpg'],
+                1 => ['images/rooms/1/room-1-1.jpg', 'images/rooms/1/room-1-2.jpg', 'images/rooms/1/room-1-3.jpg'],
+                2 => ['images/rooms/2/room-2-1.jpg', 'images/rooms/2/room-2-2.jpg', 'images/rooms/2/room-2-3.jpg'],
+                3 => ['images/rooms/3/room-3-1.jpg', 'images/rooms/3/room-3-2.jpg', 'images/rooms/3/room-3-3.jpg'],
+                4 => ['images/rooms/4/room-4-1.jpg', 'images/rooms/4/room-4-2.jpg', 'images/rooms/4/room-4-3.jpg'],
+                5 => ['images/rooms/5/room-5-3.jpg', 'images/rooms/5/room-5-2.jpg', 'images/rooms/5/room-5-1.jpg'],
             ];
         @endphp
 
@@ -90,7 +117,7 @@
             @php
                 $isBookedToday = $room->bookings->where('booking_date', $today)->where('status', 'active')->count() > 0;
                 $images = $roomImages[$room->room_number] ?? ['images/rooms/default.jpg'];
-                $price = $room->price ?? 4500; // ✅ Use DB column instead of hardcoded array
+                $price = $room->price ?? 4500; //  Use DB column instead of hardcoded array
             @endphp
 
             <div class="room-row">
@@ -100,7 +127,7 @@
                     <p>{{ $room->description ?? 'Comfortable room with all amenities.' }}</p>
                     <div class="room-price">
                         <span>Price: </span>
-                        <strong>{{ number_format($price, 2) }} Rs</strong>
+                        <strong>Rs. {{ number_format($price, 2) }}</strong>
                     </div>
 
                     <div class="booking-buttons">

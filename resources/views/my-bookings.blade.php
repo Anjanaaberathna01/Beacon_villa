@@ -148,6 +148,7 @@
             calendar.render();
         });
     </script>
+        @include('layouts.footer')
 </body>
 
 </html>

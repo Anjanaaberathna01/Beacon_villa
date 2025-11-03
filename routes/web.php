@@ -14,7 +14,6 @@ use App\Http\Middleware\AdminMiddleware;
 // Dashboard (User)
 // ----------------------
 Route::get('/', [DashboardController::class, 'index'])
-    ->middleware('auth')
     ->name('dashboard');
 
 // ----------------------
