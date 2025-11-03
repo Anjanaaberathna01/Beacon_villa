@@ -73,11 +73,13 @@
     <!-- Contact Info Section -->
     <section class="contact-section" id="contact">
         <div class="contact-info">
-        <div class="info-box">
-            <div class="icon"><i class="fab fa-whatsapp"></i></div>
-            <h3>WhatsApp</h3>
-            <p>Chat with us directly<br>+94 77 199 7247</p>
-        </div>
+        <a href="https://wa.me/94771997247" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+            <div class="info-box">
+                <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                <h3>WhatsApp</h3>
+                <p>Chat with us directly<br>+94 77 199 7247</p>
+            </div>
+        </a>
 
         <div class="info-box">
             <div class="icon"><i class="fas fa-phone"></i></div>

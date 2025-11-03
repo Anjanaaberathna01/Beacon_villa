@@ -361,13 +361,18 @@ main {
 .contact-info {
     display: flex;
     justify-content: space-around;
-    align-items: stretch;
+    align-items: stretch; /* make children stretch to same height */
     gap: 20px;
     flex-wrap: wrap;
 }
 
 /* Info Box */
 .info-box {
+    /* Make each info box a flex column so content centers vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex: 1;
     min-width: 250px;
     padding: 25px;
@@ -375,9 +380,26 @@ main {
     border-radius: 12px;
     text-align: center;
     transition: transform 0.3s ease;
+    box-sizing: border-box;
+    min-height: 150px; /* ensure consistent height */
 }
 .info-box:hover {
     transform: translateY(-5px);
+}
+
+/* Ensure anchor-wrapped info-boxes behave like the other flex children */
+.contact-info > a {
+    display: block; /* make anchor fill its flex area */
+    flex: 1;
+    min-width: 250px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-info > a .info-box {
+    /* remove duplicate spacing if anchor wraps the box */
+    margin: 0;
+    height: 100%;
 }
 
 /* Icons */
@@ -413,7 +435,10 @@ main {
     .info-box {
         width: 100%;
         max-width: 400px;
+        min-height: auto; /* allow variable height on small screens */
+        padding: 20px;
     }
+    .contact-info > a { width: 100%; max-width: 400px; }
 }
 /* Responsive */
 @media (max-width: 1024px) {
