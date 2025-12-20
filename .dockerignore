@@ -1,0 +1,39 @@
+# Laravel / PHP project .dockerignore
+# Exclude VCS, local environment and IDE/editor files
+.git
+.gitignore
+.github
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+node_modules
+vendor
+
+# Build / logs / caches
+npm-debug.log
+yarn-error.log
+phpunit.xml
+phpunit.xml.dist
+storage/
+storage/*
+storage/framework/*
+storage/logs/*
+bootstrap/cache/*
+
+# Environment files
+.env
+.env.*
+
+# Docker / Compose
+docker-compose.yml
+Dockerfile
+
+# Tests and CI
+tests/
+/.github/
+
+# Composer lock (optional to include in build context)
+composer.lock
