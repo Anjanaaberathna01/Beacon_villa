@@ -33,6 +33,12 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.user');
 
 // ----------------------
+// Google OAuth Login
+// ----------------------
+Route::get('/auth/google', [AuthController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('/auth/google/callback', [AuthController::class, 'handleGoogleCallback'])->name('login.google.callback');
+
+// ----------------------
 // User Logout
 // ----------------------
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

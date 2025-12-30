@@ -81,18 +81,22 @@
             </div>
         </a>
 
-        <div class="info-box">
-            <div class="icon"><i class="fas fa-phone"></i></div>
-            <h3>Phone</h3>
-            <p>+94 71 289 0877<br>+94 77 199 7247</p>
-        </div>
+        <a href="tel:+94712890877" style="text-decoration:none;color:inherit;">
+            <div class="info-box">
+                <div class="icon"><i class="fas fa-phone"></i></div>
+                <h3>Phone</h3>
+                <p>+94 71 289 0877<br>+94 77 199 7247</p>
+            </div>
+        </a>
 
-        <div class="info-box">
-            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-            <h3>Our Location</h3>
-            <p>5th cannel<br>
-            Srawasthipura, Anuradhapura</p>
-        </div>
+        <a href="https://maps.app.goo.gl/7XNyWrum8qUFVbXF7" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+            <div class="info-box">
+                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3>Our Location</h3>
+                <p>5th cannel<br>
+                Srawasthipura, Anuradhapura</p>
+            </div>
+        </a>
     </div>
     </section>
 
@@ -107,7 +111,7 @@
 
             // Define room images
             $roomImages = [
-                1 => ['images/rooms/1/room-1-1.jpg', 'images/rooms/1/room-1-2.jpg', 'images/rooms/1/room-1-3.jpg'],
+                1 => ['images/rooms/1/room-1-1.jpg', 'images/rooms/1/room-1-2.jpeg', 'images/rooms/1/room-1-3.jpg'],
                 2 => ['images/rooms/2/room-2-1.jpg', 'images/rooms/2/room-2-2.jpg', 'images/rooms/2/room-2-3.jpg'],
                 3 => ['images/rooms/3/room-3-1.jpg', 'images/rooms/3/room-3-2.jpg', 'images/rooms/3/room-3-3.jpg'],
                 4 => ['images/rooms/4/room-4-1.jpg', 'images/rooms/4/room-4-2.jpg', 'images/rooms/4/room-4-3.jpg'],

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Laravel\Socialite\Facades\Socialite;
+use Exception;
 
 class AuthController extends Controller
 {
@@ -49,5 +51,46 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/login')->with('success', 'Logged out successfully');
+    }
+
+    // Redirect to Google OAuth
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    // Handle Google OAuth callback
+    public function handleGoogleCallback()
+    {
+        try {
+            $googleUser = Socialite::driver('google')->user();
+
+            // Find or create user
+            $user = User::where('email', $googleUser->getEmail())->first();
+
+            if ($user) {
+                // Update existing user with Google ID if not already set
+                if (!$user->google_id) {
+                    $user->google_id = $googleUser->getId();
+                    $user->save();
+                }
+            } else {
+                // Create new user
+                $user = User::create([
+                    'name' => $googleUser->getName(),
+                    'email' => $googleUser->getEmail(),
+                    'google_id' => $googleUser->getId(),
+                    'password' => Hash::make(uniqid()), // Random password for Google users
+                ]);
+            }
+
+            // Log the user in
+            Auth::login($user);
+
+            return redirect()->route('dashboard')->with('success', 'Logged in with Google successfully!');
+
+        } catch (Exception $e) {
+            return redirect()->route('login')->withErrors(['error' => 'Google login failed. Please try again.']);
+        }
     }
 }
